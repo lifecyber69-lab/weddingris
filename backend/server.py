@@ -153,15 +153,6 @@ def _ping_health():
     resp = requests.get(KEEPALIVE_URL, timeout=10)
     return resp.status_code
 
-@app.on_event("startup")
-async def start_keep_alive():
-    app.state.keep_alive_task = asyncio.create_task(keep_alive_loop())
-    logger.info("Keep-alive cron started (every %s seconds)", KEEPALIVE_INTERVAL_SECONDS)
-
-
 @app.on_event("shutdown")
 async def shutdown_db_client():
-    task = getattr(app.state, "keep_alive_task", None)
-    if task:
-        task.cancel()
     client.close()
