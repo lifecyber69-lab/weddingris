@@ -74,7 +74,7 @@ export default function Hero() {
           custom={0.25}
           initial="hidden"
           animate="show"
-          className="font-accent tracking-[0.45em] text-[11px] md:text-sm uppercase text-maroon/80 mb-8"
+          className="font-accent tracking-[0.45em] text-sm md:text-base uppercase text-maroon font-medium mb-8 [text-shadow:0_1px_12px_rgba(253,251,247,0.9)]"
         >
           Together with their families
         </motion.p>
@@ -112,7 +112,7 @@ export default function Hero() {
           custom={1.5}
           initial="hidden"
           animate="show"
-          className="mt-10 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 font-body text-sm md:text-base tracking-[0.25em] uppercase text-ink/70"
+          className="mt-10 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 font-body text-base md:text-lg tracking-[0.25em] uppercase text-ink font-medium [text-shadow:0_1px_12px_rgba(253,251,247,0.85)]"
         >
           <span>Wednesday</span>
           <span className="text-gold">✦</span>
