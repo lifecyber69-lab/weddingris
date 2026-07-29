@@ -96,7 +96,7 @@ async def list_rsvps():
 
 @api_router.get("/rsvp/stats")
 async def rsvp_stats():
-    rows = await db.rsvps.find({}, {"_id": 0}).to_list(2000)
+    rows = await db.rsvps.find({}, {"_id": 0, "attending": 1, "guests": 1}).to_list(2000)
     total_responses = len(rows)
     attending = [r for r in rows if r.get("attending")]
     total_guests = sum(int(r.get("guests", 0)) for r in attending)
