@@ -10,6 +10,8 @@ from typing import List, Optional, Annotated, Any
 from pydantic.functional_validators import BeforeValidator
 from bson import ObjectId
 import uuid
+import asyncio
+import requests
 from datetime import datetime, timezone
 
 
@@ -79,6 +81,12 @@ async def root():
     return {"message": "Sindhuja & Pradeep Wedding API"}
 
 
+@api_router.get("/health")
+async def health():
+    """Lightweight health check used by the keep-alive cron. Returns 200 OK."""
+    return {"status": "ok", "timestamp": datetime.now(timezone.utc).isoformat()}
+
+
 @api_router.post("/rsvp", response_model=RSVP)
 async def create_rsvp(payload: RSVPCreate):
     rsvp = RSVP(**payload.model_dump())
@@ -141,6 +149,43 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+# ---------- Keep-alive cron: self-ping /api/health every 14 minutes ----------
+KEEPALIVE_INTERVAL_SECONDS = 14 * 60  # 14 minutes
+KEEPALIVE_URL = "http://localhost:8001/api/health"
+
+
+def _ping_health():
+    """Blocking GET to the health endpoint. Runs in a thread executor."""
+    resp = requests.get(KEEPALIVE_URL, timeout=10)
+    return resp.status_code
+
+
+async def keep_alive_loop():
+    """Every 14 minutes, ping the health endpoint and log the result."""
+    while True:
+        try:
+            await asyncio.sleep(KEEPALIVE_INTERVAL_SECONDS)
+            loop = asyncio.get_running_loop()
+            status = await loop.run_in_executor(None, _ping_health)
+            if status == 200:
+                logger.info("Keep-alive cron: /api/health -> 200 OK")
+            else:
+                logger.warning("Keep-alive cron: /api/health -> %s", status)
+        except asyncio.CancelledError:
+            break
+        except Exception as exc:  # noqa: BLE001 - never let the cron crash
+            logger.error("Keep-alive cron error: %s", exc)
+
+
+@app.on_event("startup")
+async def start_keep_alive():
+    app.state.keep_alive_task = asyncio.create_task(keep_alive_loop())
+    logger.info("Keep-alive cron started (every %s seconds)", KEEPALIVE_INTERVAL_SECONDS)
+
+
 @app.on_event("shutdown")
 async def shutdown_db_client():
+    task = getattr(app.state, "keep_alive_task", None)
+    if task:
+        task.cancel()
     client.close()
