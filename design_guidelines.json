@@ -1,0 +1,143 @@
+{
+  "theme": "Traditional South-Indian Telugu Wedding (Awwwards-style)",
+  "art_direction": "Editorial, premium, traditional aesthetic with quiet luxury spacing, modular magazine-like composition, and smooth scroll motion. Uses temple gopuram motifs, watercolor lotus/marigold, banana leaves, and gold foil aesthetics over a cream parchment background.",
+  "typography": {
+    "headings": {
+      "family": "Cormorant Garamond, serif",
+      "weights": ["400", "500", "600"],
+      "usage": "H1 for Kinetic Hero ('Sindhuja & Pradeep'), H2 for section titles. Elegant, high-contrast serif to convey traditional calligraphy."
+    },
+    "body": {
+      "family": "Outfit, sans-serif",
+      "weights": ["300", "400"],
+      "usage": "Paragraphs, venue details, RSVP form labels. Provides modern, clean contrast to the ornate serif headings."
+    },
+    "accents": {
+      "family": "Italiana, serif",
+      "usage": "For numbered manifesto chapters (01, 02) and subtle sub-headlines or dates (Thula Lagnam)."
+    }
+  },
+  "colors": {
+    "background": {
+      "primary": "#FDFBF7",
+      "description": "Warm ivory/cream parchment. DO NOT use dark mode. All sections must use variations of cream/ivory."
+    },
+    "surface": {
+      "secondary": "#F6F1EA",
+      "description": "Subtle darker cream for cards, RSVP container, or gallery background."
+    },
+    "text": {
+      "primary": "#2D1B1B",
+      "description": "Deep maroon/temple-brown for high contrast legibility."
+    },
+    "accents": {
+      "gold": "#D4AF37",
+      "maroon": "#800000",
+      "sage_green": "#8F9779",
+      "description": "Use gold for subtle borders, marquee text, icons. Maroon for buttons/CTAs. Sage green for subtle botanical leaf accents."
+    }
+  },
+  "visual_enhancers": {
+    "borders": "1px solid rgba(212, 175, 55, 0.3) (Subtle gold borders)",
+    "shadows": "Minimal. Use soft ambient shadows for gallery images only: drop-shadow(0 10px 20px rgba(45, 27, 27, 0.05))",
+    "radii": "rounded-none or max 4px for specific clipped frames to keep the editorial/magazine feel.",
+    "textures": "Apply a subtle noise/grain overlay globally (`mix-blend-multiply opacity-20`) or parchment paper background for depth."
+  },
+  "layouts": {
+    "spacing": "Generous. Use p-12, p-24, py-32 to create Awwwards-level breathing room.",
+    "hero": "100vh container. Central kinetic typography block. Use absolute positioned subtle watercolor elements (lotus/banana leaf) floating at the edges.",
+    "manifesto_chapters": "Grid 12-column. Asymmetrical. Chapter number (e.g., '01') takes 4 columns, content/image takes 6-8 columns. Adds editorial tension.",
+    "gallery": "Bento-style or masonry overlapping clipped frames. Spotlight effect on hover.",
+    "venue": "Split screen: Left side beautiful typography and details, right side embedded Google Maps wrapped in a traditional arched or rectangular gold frame."
+  },
+  "motion": {
+    "smooth_scroll": "Lenis is MANDATORY. Initialize Lenis for the entire app.",
+    "hero_reveal": "Framer-motion masked line-by-line reveal for 'Sindhuja & Pradeep'. Split text into lines, overflow-hidden wrapper, staggerChildren 0.15s, duration 1s, ease [0.16, 1, 0.3, 1], start at y: '110%'.",
+    "scroll_reveals": "Framer-motion `whileInView`. Elements should fade in and drift up (y: 30 to 0) as they enter viewport.",
+    "parallax": "Subtle parallax on the background watercolor elements (lotus, temple gopuram) using Framer Motion `useScroll` and `useTransform`.",
+    "marquee": "Slow editorial marquee separating sections using `react-fast-marquee`. Low contrast gold text, serif, separated by lotus icons."
+  },
+  "sections": [
+    {
+      "name": "Kinetic Hero",
+      "description": "Immersive hero, huge text 'Sindhuja & Pradeep', masked reveal. Background has subtle parchment texture and 3D/parallax floating lotus elements."
+    },
+    {
+      "name": "Marquee Separator",
+      "description": "Slow, elegant scrolling text: '✦ 26 AUGUST 2026 ✦ THULA LAGNAM ✦ N.K.N.R. GARDENS ✦'"
+    },
+    {
+      "name": "01. The Invitation (Chapter)",
+      "description": "Numbered chapter '01'. Heartfelt invitation message from families, elegant typography, large negative space."
+    },
+    {
+      "name": "02. Muhurtham & Countdown",
+      "description": "Live countdown to 26 Aug 2026, 11:24 AM. Minimalist numbers, serif font, separated by colons."
+    },
+    {
+      "name": "03. Events & Venues",
+      "description": "Wedding & Reception details. Includes Google Maps embed in a framed component."
+    },
+    {
+      "name": "04. Gallery",
+      "description": "Real product photography style frames with couple photos and traditional Indian wedding aesthetics. Overlapping layout."
+    },
+    {
+      "name": "05. RSVP & Wishes",
+      "description": "Interactive form (Name, Attending Count, Message) and a guest wishes wall."
+    }
+  ],
+  "components": {
+    "rsvp_form": {
+      "style": "Minimalist inputs, transparent background with gold bottom border (`border-b border-[#D4AF37]`), no heavy boxes. Submit button maroon with gold text, sharp corners, hover effect.",
+      "interactions": "Focus states increase border opacity. Form submission shows success toast using `sonner`."
+    }
+  },
+  "image_urls": {
+    "texture": {
+      "url": "https://images.unsplash.com/photo-1637325258040-d2f09636ecf6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjV8MHwxfHNlYXJjaHwxfHxwYXJjaG1lbnQlMjBwYXBlciUyMHRleHR1cmV8ZW58MHx8fHwxNzg1MzI4MjA0fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Parchment paper texture for background"
+    },
+    "temple_architecture": {
+      "url": "https://images.unsplash.com/photo-1538460120076-604b93a2ce88?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHwzfHxpbmRpYW4lMjB0ZW1wbGUlMjBhcmNoaXRlY3R1cmV8ZW58MHx8fHwxNzg1MzI4MjA0fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Traditional temple architecture for venue context"
+    },
+    "lotus_watercolor": {
+      "url": "https://images.unsplash.com/photo-1689259103046-06d21efe6495?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAxODF8MHwxfHNlYXJjaHwxfHxsb3R1cyUyMGZsb3dlciUyMHdhdGVyY29sb3J8ZW58MHx8fHwxNzg1MzI4MjA0fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Lotus watercolor element for parallax accents"
+    },
+    "gallery_couple_1": {
+      "url": "https://images.unsplash.com/photo-1722952934708-749c22eb2e58?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2ODh8MHwxfHNlYXJjaHwzfHxpbmRpYW4lMjBjb3VwbGUlMjB0cmFkaXRpb25hbCUyMHdlZGRpbmd8ZW58MHx8fHwxNzg1MzI4MjA0fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Indian couple portrait for gallery"
+    },
+    "gallery_couple_2": {
+      "url": "https://images.unsplash.com/photo-1621801306185-8c0ccf9c8eb8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2ODh8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBjb3VwbGUlMjB0cmFkaXRpb25hbCUyMHdlZGRpbmd8ZW58MHx8fHwxNzg1MzI4MjA0fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Indian couple hands/bangles for gallery"
+    },
+    "marigold_decor": {
+      "url": "https://images.unsplash.com/photo-1771992229225-cedf6a2d9b0f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTJ8MHwxfHNlYXJjaHw0fHxtYXJpZ29sZCUyMGZsb3dlciUyMGluZGlhbiUyMHdlZGRpbmd8ZW58MHx8fHwxNzg1MzI4MjA0fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Marigold decor element for sections"
+    }
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": {
+    "1": "Do not create generic centered layouts. Use asymmetrical, modular magazine-style composition (editorial web design) to match Awwwards aesthetic.",
+    "2": "Ensure generous spacing (p-12, py-24). Allow the text and images to breathe.",
+    "3": "Every interaction needs micro-animations - hover states, scroll-reveals with framer-motion.",
+    "4": "No transparent dropdowns or unreadable overlays.",
+    "5": "Do not apply universal transition (`transition: all`).",
+    "6": "Add `data-testid` to all interactive and key informational elements (e.g., `data-testid='rsvp-submit-button'`, `data-testid='countdown-timer'`).",
+    "7": "Use `sonner` for toast notifications in RSVP form.",
+    "8": "NEVER use placeholder URLs or AI emoji characters. Use provided image_urls."
+  },
+  "instructions_to_main_agent": [
+    "Install and setup @studio-freight/lenis for smooth scrolling in the main layout.",
+    "Use framer-motion heavily. The Hero component MUST feature a kinetic masked line-by-line reveal.",
+    "Install react-fast-marquee for the slow editorial ribbon.",
+    "Use lucide-react for minimal icons (e.g., map-pin, clock).",
+    "Tailwind: Customize tailwind.config.js to include Cormorant Garamond, Outfit, and Americana color palette (Ivory/Gold/Maroon)."
+  ],
+  "accessibility": {
+    "contrast": "Ensure deep maroon text on cream background passes WCAG 2.1 AA.",
+    "reduced_motion": "Respect prefers-reduced-motion for framer-motion animations."
+  }
+}
