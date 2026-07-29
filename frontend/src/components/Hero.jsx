@@ -41,9 +41,9 @@ export default function Hero() {
         className="absolute inset-0 pointer-events-none"
       >
         <img
-          src={IMAGES.deityAltar}
+          src={IMAGES.deity}
           alt=""
-          className="h-full w-full object-cover opacity-[0.28]"
+          className="h-full w-full object-cover opacity-[0.32]"
         />
       </motion.div>
       <div className="absolute inset-0 paper-grain pointer-events-none" />
@@ -59,29 +59,15 @@ export default function Hero() {
       <FloralCorner className="absolute bottom-4 right-4 md:bottom-8 md:right-8 w-24 md:w-40 text-gold/60 scale-x-[-1] -scale-y-100 pointer-events-none" />
 
       <motion.div style={{ y: yText, opacity }} className="relative z-10 text-center px-6">
-        {/* Divine blessing — Sri Venkateswara with Sridevi & Bhudevi */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.85, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: EASE, delay: 0.1 }}
-          className="mx-auto mb-8 w-fit"
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: EASE, delay: 0.1 }}
+          className="font-accent tracking-[0.5em] uppercase text-xs md:text-sm text-maroon/80 mb-5"
+          data-testid="hero-blessing"
         >
-          <div className="relative p-2 border border-gold/50 bg-ivory/60 backdrop-blur-sm shadow-[0_10px_30px_rgba(45,27,27,0.12)]">
-            <span className="absolute -top-px -left-px h-4 w-4 border-t-2 border-l-2 border-gold" />
-            <span className="absolute -top-px -right-px h-4 w-4 border-t-2 border-r-2 border-gold" />
-            <span className="absolute -bottom-px -left-px h-4 w-4 border-b-2 border-l-2 border-gold" />
-            <span className="absolute -bottom-px -right-px h-4 w-4 border-b-2 border-r-2 border-gold" />
-            <img
-              src={IMAGES.deity}
-              alt="Sri Venkateswara Swamy with Sridevi and Bhudevi"
-              className="h-28 w-40 md:h-40 md:w-60 object-cover"
-              data-testid="hero-deity-image"
-            />
-          </div>
-          <p className="mt-3 font-accent tracking-[0.4em] uppercase text-[10px] text-maroon/70">
-            Shubhamastu
-          </p>
-        </motion.div>
+          Shubhamastu
+        </motion.p>
 
         <motion.p
           variants={fade}
