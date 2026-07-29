@@ -63,7 +63,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: EASE, delay: 0.1 }}
-          className="font-accent tracking-[0.5em] uppercase text-xs md:text-sm text-maroon/80 mb-5"
+          className="font-accent tracking-[0.5em] uppercase text-lg md:text-2xl text-maroon mb-5"
           data-testid="hero-blessing"
         >
           Shubhamastu
@@ -112,9 +112,17 @@ export default function Hero() {
           custom={1.5}
           initial="hidden"
           animate="show"
-          className="mt-10 font-body text-sm md:text-base tracking-[0.25em] uppercase text-ink/70"
+          className="mt-10 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 font-body text-sm md:text-base tracking-[0.25em] uppercase text-ink/70"
         >
-          {WEDDING.dateLabel} · Hyderabad
+          <span>Wednesday</span>
+          <span className="text-gold">✦</span>
+          <span className="font-display normal-case tracking-normal italic font-semibold text-3xl md:text-5xl text-maroon leading-none">
+            26<sup className="text-lg md:text-2xl align-super">th</sup> August 2026
+          </span>
+          <span className="text-gold">✦</span>
+          <span>11:24 A.M.</span>
+          <span className="text-gold">✦</span>
+          <span>Hyderabad</span>
         </motion.div>
       </motion.div>
 
