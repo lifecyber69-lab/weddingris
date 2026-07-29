@@ -44,6 +44,10 @@ export const WEDDING = {
 };
 
 export const IMAGES = {
+  deity:
+    "https://customer-assets-0z36b82j.emergentagent.net/job_charm-rsvp-hub/artifacts/7cmnk6az_8835d13fc935dafb753fe86c91788e78.jpg",
+  monogram:
+    "https://customer-assets-0z36b82j.emergentagent.net/job_charm-rsvp-hub/artifacts/bken7lab_WhatsApp%20Image%202026-07-11%20at%2016.04.35.jpeg",
   texture:
     "https://images.unsplash.com/photo-1637325258040-d2f09636ecf6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjV8MHwxfHNlYXJjaHwxfHxwYXJjaG1lbnQlMjBwYXBlciUyMHRleHR1cmV8ZW58MHx8fHwxNzg1MzI4MjA0fDA&ixlib=rb-4.1.0&q=85",
   temple:

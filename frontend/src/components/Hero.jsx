@@ -23,7 +23,6 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
   const yLotusL = useTransform(scrollYProgress, [0, 1], [0, -120]);
-  const yLotusR = useTransform(scrollYProgress, [0, 1], [0, 140]);
   const yText = useTransform(scrollYProgress, [0, 1], [0, 90]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
@@ -44,15 +43,32 @@ export default function Hero() {
         style={{ y: yLotusL }}
         className="absolute -left-16 top-24 w-56 md:w-80 opacity-40 mix-blend-multiply select-none pointer-events-none"
       />
-      <motion.img
-        src={IMAGES.marigold}
-        alt=""
-        aria-hidden
-        style={{ y: yLotusR }}
-        className="absolute -right-16 bottom-10 w-56 md:w-96 opacity-40 mix-blend-multiply select-none pointer-events-none"
-      />
 
       <motion.div style={{ y: yText, opacity }} className="relative z-10 text-center px-6">
+        {/* Divine blessing — Sri Venkateswara with Sridevi & Bhudevi */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: EASE, delay: 0.1 }}
+          className="mx-auto mb-8 w-fit"
+        >
+          <div className="relative p-2 border border-gold/50 bg-ivory/60 backdrop-blur-sm shadow-[0_10px_30px_rgba(45,27,27,0.12)]">
+            <span className="absolute -top-px -left-px h-4 w-4 border-t-2 border-l-2 border-gold" />
+            <span className="absolute -top-px -right-px h-4 w-4 border-t-2 border-r-2 border-gold" />
+            <span className="absolute -bottom-px -left-px h-4 w-4 border-b-2 border-l-2 border-gold" />
+            <span className="absolute -bottom-px -right-px h-4 w-4 border-b-2 border-r-2 border-gold" />
+            <img
+              src={IMAGES.deity}
+              alt="Sri Venkateswara Swamy with Sridevi and Bhudevi"
+              className="h-28 w-40 md:h-40 md:w-60 object-cover"
+              data-testid="hero-deity-image"
+            />
+          </div>
+          <p className="mt-3 font-accent tracking-[0.4em] uppercase text-[10px] text-maroon/70">
+            Shubhamastu
+          </p>
+        </motion.div>
+
         <motion.p
           variants={fade}
           custom={0.25}

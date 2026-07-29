@@ -6,7 +6,6 @@ const LINKS = [
   { id: "invitation", label: "Invitation" },
   { id: "countdown", label: "Muhurtham" },
   { id: "events", label: "Venues" },
-  { id: "gallery", label: "Gallery" },
   { id: "rsvp", label: "RSVP" },
 ];
 

@@ -97,7 +97,7 @@ export default function RsvpWishes() {
         {/* Form */}
         <div>
           <Reveal>
-            <span className="chapter-num block text-[5rem] md:text-[8rem]">05</span>
+            <span className="chapter-num block text-[5rem] md:text-[8rem]">04</span>
             <p className="font-accent tracking-[0.35em] uppercase text-xs text-maroon/70">
               Kindly respond
             </p>
