@@ -49,9 +49,9 @@ export default function Countdown() {
         src={IMAGES.temple}
         alt=""
         aria-hidden
-        className="absolute inset-0 h-full w-full object-cover opacity-[0.7] pointer-events-none"
+        className="absolute inset-0 h-full w-full object-cover opacity-[0.32] pointer-events-none"
       />
-      <div className="absolute inset-0 bg-parchment/15 pointer-events-none" />
+      <div className="absolute inset-0 bg-parchment/45 pointer-events-none" />
       <div className="absolute inset-0 paper-grain pointer-events-none" />
 
       <div className="relative mx-auto max-w-5xl text-center">
@@ -63,7 +63,7 @@ export default function Countdown() {
           <h2 className="mt-6 font-display italic text-4xl md:text-6xl text-ink">
             The Sumuhurtham
           </h2>
-          <p className="mt-4 font-body text-sm md:text-base tracking-[0.2em] uppercase text-ink/60">
+          <p className="mt-4 font-body text-base md:text-lg tracking-[0.2em] uppercase text-ink font-medium">
             {WEDDING.dateLabel} · {WEDDING.timeLabel} · “{WEDDING.lagnam}”
           </p>
         </Reveal>

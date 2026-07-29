@@ -43,12 +43,12 @@ export default function Hero() {
         <img
           src={IMAGES.deity}
           alt=""
-          className="h-full w-full object-cover opacity-[0.8]"
+          className="h-full w-full object-cover opacity-[0.4]"
         />
       </motion.div>
       <div className="absolute inset-0 paper-grain pointer-events-none" />
       {/* keep center text crisp */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(253,251,247,0.6)_0%,rgba(253,251,247,0.3)_50%,rgba(253,251,247,0)_78%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(253,251,247,0.85)_0%,rgba(253,251,247,0.55)_45%,rgba(253,251,247,0.2)_78%)] pointer-events-none" />
 
       {/* Traditional floral corner elements (like the invitation) */}
       <motion.div style={{ y: yFloral }} className="pointer-events-none">
@@ -63,7 +63,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: EASE, delay: 0.1 }}
-          className="font-accent tracking-[0.5em] uppercase text-lg md:text-2xl text-maroon mb-5"
+          className="font-accent tracking-[0.5em] uppercase text-xl md:text-3xl font-semibold text-maroon mb-5 [text-shadow:0_1px_14px_rgba(253,251,247,0.9)]"
           data-testid="hero-blessing"
         >
           Shubhamastu
