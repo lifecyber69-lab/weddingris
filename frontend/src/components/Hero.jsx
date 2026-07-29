@@ -43,12 +43,12 @@ export default function Hero() {
         <img
           src={IMAGES.deity}
           alt=""
-          className="h-full w-full object-cover opacity-[0.55]"
+          className="h-full w-full object-cover opacity-[0.8]"
         />
       </motion.div>
       <div className="absolute inset-0 paper-grain pointer-events-none" />
       {/* keep center text crisp */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(253,251,247,0.72)_0%,rgba(253,251,247,0.42)_45%,rgba(253,251,247,0.12)_75%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(253,251,247,0.6)_0%,rgba(253,251,247,0.3)_50%,rgba(253,251,247,0)_78%)] pointer-events-none" />
 
       {/* Traditional floral corner elements (like the invitation) */}
       <motion.div style={{ y: yFloral }} className="pointer-events-none">
