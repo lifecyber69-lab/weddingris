@@ -49,8 +49,9 @@ export default function Countdown() {
         src={IMAGES.temple}
         alt=""
         aria-hidden
-        className="absolute inset-0 h-full w-full object-cover opacity-[0.06] pointer-events-none"
+        className="absolute inset-0 h-full w-full object-cover opacity-[0.22] pointer-events-none"
       />
+      <div className="absolute inset-0 bg-parchment/40 pointer-events-none" />
       <div className="absolute inset-0 paper-grain pointer-events-none" />
 
       <div className="relative mx-auto max-w-5xl text-center">

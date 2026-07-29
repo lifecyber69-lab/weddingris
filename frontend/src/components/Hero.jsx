@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { WEDDING, IMAGES } from "../data/wedding";
-import { LotusMark, EASE } from "./Reveal";
+import { LotusMark, FloralCorner, EASE } from "./Reveal";
 
 const line = {
   hidden: { y: "115%" },
@@ -22,7 +22,8 @@ export default function Hero() {
     target: ref,
     offset: ["start start", "end start"],
   });
-  const yLotusL = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const yBg = useTransform(scrollYProgress, [0, 1], [0, 80]);
+  const yFloral = useTransform(scrollYProgress, [0, 1], [0, -60]);
   const yText = useTransform(scrollYProgress, [0, 1], [0, 90]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
@@ -33,16 +34,29 @@ export default function Hero() {
       className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden bg-ivory"
       data-testid="hero-section"
     >
-      <div className="absolute inset-0 paper-grain pointer-events-none" />
-
-      {/* Parallax botanical accents */}
-      <motion.img
-        src={IMAGES.lotus}
-        alt=""
+      {/* Attached deity image as soft full-bleed background */}
+      <motion.div
         aria-hidden
-        style={{ y: yLotusL }}
-        className="absolute -left-16 top-24 w-56 md:w-80 opacity-40 mix-blend-multiply select-none pointer-events-none"
-      />
+        style={{ y: yBg }}
+        className="absolute inset-0 pointer-events-none"
+      >
+        <img
+          src={IMAGES.deityAltar}
+          alt=""
+          className="h-full w-full object-cover opacity-[0.28]"
+        />
+      </motion.div>
+      <div className="absolute inset-0 paper-grain pointer-events-none" />
+      {/* keep center text crisp */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(253,251,247,0.82)_0%,rgba(253,251,247,0.55)_42%,rgba(253,251,247,0.25)_72%)] pointer-events-none" />
+
+      {/* Traditional floral corner elements (like the invitation) */}
+      <motion.div style={{ y: yFloral }} className="pointer-events-none">
+        <FloralCorner className="absolute top-16 left-4 md:top-20 md:left-8 w-24 md:w-40 text-gold/70" />
+        <FloralCorner className="absolute top-16 right-4 md:top-20 md:right-8 w-24 md:w-40 text-gold/70 scale-x-[-1]" />
+      </motion.div>
+      <FloralCorner className="absolute bottom-4 left-4 md:bottom-8 md:left-8 w-24 md:w-40 text-gold/60 -scale-y-100 pointer-events-none" />
+      <FloralCorner className="absolute bottom-4 right-4 md:bottom-8 md:right-8 w-24 md:w-40 text-gold/60 scale-x-[-1] -scale-y-100 pointer-events-none" />
 
       <motion.div style={{ y: yText, opacity }} className="relative z-10 text-center px-6">
         {/* Divine blessing — Sri Venkateswara with Sridevi & Bhudevi */}

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { LotusMark } from "./Reveal";
+import { IMAGES } from "../data/wedding";
 
 const LINKS = [
   { id: "invitation", label: "Invitation" },
@@ -40,11 +40,15 @@ export default function Nav() {
       <div className="mx-auto max-w-7xl px-5 md:px-10 h-16 flex items-center justify-between">
         <button
           onClick={() => go("hero")}
-          className="flex items-center gap-2 group"
+          className="flex items-center gap-2.5 group"
           data-testid="nav-logo"
         >
-          <LotusMark className="h-5 w-5 text-gold transition-transform duration-500 group-hover:rotate-12" />
-          <span className="font-accent tracking-[0.3em] text-sm text-maroon">S &amp; P</span>
+          <img
+            src={IMAGES.monogram}
+            alt="Sindhuja & Pradeep monogram"
+            className="h-10 w-10 md:h-11 md:w-11 rounded-full object-cover ring-1 ring-gold/50 transition-transform duration-500 group-hover:scale-105"
+          />
+          <span className="font-accent tracking-[0.3em] text-sm text-maroon hidden sm:inline">S &amp; P</span>
         </button>
 
         <nav className="hidden md:flex items-center gap-9">

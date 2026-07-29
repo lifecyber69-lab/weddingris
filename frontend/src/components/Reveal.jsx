@@ -48,3 +48,33 @@ export const LotusMark = ({ className = "" }) => (
 );
 
 export { EASE };
+
+// Traditional gold floral corner flourish (SVG) — evokes invitation ornamentation.
+export const FloralCorner = ({ className = "" }) => (
+  <svg viewBox="0 0 160 160" fill="none" className={className} aria-hidden>
+    <g stroke="currentColor" strokeWidth="1.4" strokeLinecap="round">
+      <path d="M6 6c34 2 60 12 82 34s32 48 34 82" opacity="0.8" />
+      <path d="M6 6c26 6 46 20 60 42" opacity="0.5" />
+      <path d="M14 40c18-6 34-2 46 12" opacity="0.7" />
+      <path d="M40 14c-6 18-2 34 12 46" opacity="0.7" />
+    </g>
+    <g fill="currentColor">
+      {/* lotus buds along the vine */}
+      <path d="M60 56c3 5 3 9 0 13-3-4-3-8 0-13Z" opacity="0.9" />
+      <path d="M60 69c-4-1-7-3-8-7 4 0 7 2 8 7Z" opacity="0.75" />
+      <path d="M60 69c4-1 7-3 8-7-4 0-7 2-8 7Z" opacity="0.75" />
+      <circle cx="24" cy="24" r="3.4" opacity="0.9" />
+      <path d="M96 44c2 3 2 6 0 9-2-3-2-6 0-9Z" opacity="0.7" />
+      <path d="M44 96c3 2 6 2 9 0-3-2-6-2-9 0Z" opacity="0.7" />
+    </g>
+    {/* small five-petal marigold */}
+    <g fill="currentColor" opacity="0.85" transform="translate(30 78)">
+      <circle cx="0" cy="0" r="2.2" />
+      <ellipse cx="0" cy="-7" rx="2.4" ry="4" />
+      <ellipse cx="7" cy="-2" rx="4" ry="2.4" />
+      <ellipse cx="4" cy="6" rx="2.4" ry="4" transform="rotate(20 4 6)" />
+      <ellipse cx="-4" cy="6" rx="2.4" ry="4" transform="rotate(-20 -4 6)" />
+      <ellipse cx="-7" cy="-2" rx="4" ry="2.4" />
+    </g>
+  </svg>
+);

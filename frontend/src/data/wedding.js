@@ -46,6 +46,8 @@ export const WEDDING = {
 export const IMAGES = {
   deity:
     "https://customer-assets-0z36b82j.emergentagent.net/job_charm-rsvp-hub/artifacts/7cmnk6az_8835d13fc935dafb753fe86c91788e78.jpg",
+  deityAltar:
+    "https://customer-assets-0z36b82j.emergentagent.net/job_charm-rsvp-hub/artifacts/yeykourx_10b0bf2531c2a02c5a60b3d2067cb25a.jpg",
   monogram:
     "https://customer-assets-0z36b82j.emergentagent.net/job_charm-rsvp-hub/artifacts/bken7lab_WhatsApp%20Image%202026-07-11%20at%2016.04.35.jpeg",
   texture:

@@ -7,6 +7,7 @@ import Ribbon from "@/components/Ribbon";
 import Invitation from "@/components/Invitation";
 import Countdown from "@/components/Countdown";
 import Events from "@/components/Events";
+import Monogram from "@/components/Monogram";
 import RsvpWishes from "@/components/RsvpWishes";
 import Footer from "@/components/Footer";
 
@@ -21,6 +22,7 @@ function App() {
           <Invitation />
           <Countdown />
           <Events />
+          <Monogram />
           <RsvpWishes />
         </main>
         <Footer />
