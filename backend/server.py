@@ -148,34 +148,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-
-# ---------- Keep-alive cron: self-ping /api/health every 14 minutes ----------
-KEEPALIVE_INTERVAL_SECONDS = 14 * 60  # 14 minutes
-KEEPALIVE_URL = "http://localhost:8001/api/health"
-
-
 def _ping_health():
     """Blocking GET to the health endpoint. Runs in a thread executor."""
     resp = requests.get(KEEPALIVE_URL, timeout=10)
     return resp.status_code
-
-
-async def keep_alive_loop():
-    """Every 14 minutes, ping the health endpoint and log the result."""
-    while True:
-        try:
-            await asyncio.sleep(KEEPALIVE_INTERVAL_SECONDS)
-            loop = asyncio.get_running_loop()
-            status = await loop.run_in_executor(None, _ping_health)
-            if status == 200:
-                logger.info("Keep-alive cron: /api/health -> 200 OK")
-            else:
-                logger.warning("Keep-alive cron: /api/health -> %s", status)
-        except asyncio.CancelledError:
-            break
-        except Exception as exc:  # noqa: BLE001 - never let the cron crash
-            logger.error("Keep-alive cron error: %s", exc)
-
 
 @app.on_event("startup")
 async def start_keep_alive():
